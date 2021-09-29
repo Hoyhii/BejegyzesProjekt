@@ -33,14 +33,19 @@ public class Main {
 
             bejegyzesLista.add(new Bejegyzes(szerzo, tartalom));
         }
+        legnepszerubb();
+        randomLikok();
+        felhasznaloModositsaMasodikBejegyzest();
+        konzolraIratas();
     }
-        public static void randomLikok(){
-            int meret = bejegyzesLista.size();
-            for (int i = 0; i < 20; i++) {
-                int random = rnd.nextInt(meret - 0) + 0;
-                bejegyzesLista.get(random).getLikeok();
-            }
+
+    public static void randomLikok() {
+        int meret = bejegyzesLista.size();
+        for (int i = 0; i < 20; i++) {
+            int random = rnd.nextInt(meret - 0) + 0;
+            bejegyzesLista.get(random).getLikeok();
         }
+    }
 
     public static void felhasznaloModositsaMasodikBejegyzest() {
         String tartalom;
@@ -48,10 +53,12 @@ public class Main {
         tartalom = sc.next();
         bejegyzesLista.get(1).setTartalom(tartalom);
     }
-    public static void konzolraIratas(){
+
+    public static void konzolraIratas() {
         String bejegyzesek = "";
-        for (Bejegyzes bejegyzes: bejegyzesLista
-        ) { bejegyzesek += bejegyzes + "\n";
+        for (Bejegyzes bejegyzes : bejegyzesLista
+        ) {
+            bejegyzesek += bejegyzes + "\n";
         }
         System.out.println(bejegyzesek);
     }
@@ -75,5 +82,15 @@ public class Main {
             System.out.println(ex.getMessage());
         }
         return bejegyzesLista;
+    }
+
+    public static void legnepszerubb() {
+        int legTobbLike = 0;
+        for (int i = 0; i < bejegyzesLista.size(); i++) {
+            if (bejegyzesLista.get(legTobbLike).getLikeok() < bejegyzesLista.get(i).getLikeok()) {
+                legTobbLike = i;
+            }
+        }
+        System.out.println("Legnépszerübb bejegyzés: \n" + bejegyzesLista.get(legTobbLike));
     }
 }
