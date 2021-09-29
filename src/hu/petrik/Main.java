@@ -5,12 +5,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
     static List<Bejegyzes> bejegyzesLista = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
+    static Random rnd = new Random();
 
     public static void main(String[] args) {
         Bejegyzes bejegyzes1 = new Bejegyzes("Random1", "Test1");
@@ -31,6 +33,20 @@ public class Main {
 
             bejegyzesLista.add(new Bejegyzes(szerzo, tartalom));
         }
+    }
+        public static void randomLikok(){
+            int meret = bejegyzesLista.size();
+            for (int i = 0; i < 20; i++) {
+                int random = rnd.nextInt(meret - 0) + 0;
+                bejegyzesLista.get(random).getLikeok();
+            }
+        }
+
+    public static void felhasznaloModositsaMasodikBejegyzest() {
+        String tartalom;
+        System.out.print("A 2. bejegyzésnek módosulnia kell\n\tAdjon újat: ");
+        tartalom = sc.next();
+        bejegyzesLista.get(1).setTartalom(tartalom);
     }
 
 
