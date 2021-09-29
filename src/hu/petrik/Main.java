@@ -48,6 +48,13 @@ public class Main {
         tartalom = sc.next();
         bejegyzesLista.get(1).setTartalom(tartalom);
     }
+    public static void konzolraIratas(){
+        String bejegyzesek = "";
+        for (Bejegyzes bejegyzes: bejegyzesLista
+        ) { bejegyzesek += bejegyzes + "\n";
+        }
+        System.out.println(bejegyzesek);
+    }
 
 
     public static List<Bejegyzes> fajlBeolvaso(String fajlNev) {
