@@ -71,6 +71,17 @@ public class Main {
         }
         System.out.println("Ennyi bejegyzésre likeoltak 35-nél többen: " + likeszam);
     }
+    public static void tizenotnelKevesebbLike(){
+        int likeszam = 0;
+
+        for (var item: bejegyzesLista
+        ) {
+            if(item.getLikeok() < 15)
+                likeszam++;
+        }
+
+        System.out.println("Ennyi bejegyzésre likoltak 15-nél kevesebben: " + likeszam);
+    }
 
 
     public static List<Bejegyzes> fajlBeolvaso(String fajlNev) {
