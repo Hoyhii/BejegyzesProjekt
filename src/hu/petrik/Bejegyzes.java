@@ -25,6 +25,7 @@ public class Bejegyzes<DateTime> {
 
     public void setTartalom(String tartalom) {
         this.tartalom = tartalom;
+        this.szerkesztve = LocalDateTime.now();
     }
 
     public int getLikeok() {
@@ -36,11 +37,21 @@ public class Bejegyzes<DateTime> {
     }
 
     public LocalDateTime getSzerkesztve() {
-        szerkesztve = LocalDateTime.now();
         return szerkesztve;
     }
 
     public void like(){
         this.likeok++;
+    }
+
+    @Override
+    public String toString() {
+        if (this.szerkesztve == LocalDateTime.now()) {
+            return this.szerzo + " - " + this.likeok + " - " + this.letrejott +
+                    "\nSzerkesztve" + this.szerkesztve + "\n" + this.tartalom;
+        } else {
+            return this.szerzo + " - " + this.likeok + " - " + this.letrejott +
+                    "\n" + this.tartalom;
+        }
     }
 }
