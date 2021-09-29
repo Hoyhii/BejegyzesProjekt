@@ -42,7 +42,7 @@ public class Main {
     public static void randomLikok() {
         int meret = bejegyzesLista.size();
         for (int i = 0; i < 20; i++) {
-            int random = rnd.nextInt(meret - 0) + 0;
+            int random = rnd.nextInt(meret);
             bejegyzesLista.get(random).getLikeok();
         }
     }
@@ -61,6 +61,15 @@ public class Main {
             bejegyzesek += bejegyzes + "\n";
         }
         System.out.println(bejegyzesek);
+    }
+    public static void harmincotnelTobbLike(){
+        int likeszam = 0;
+        for (var item: bejegyzesLista
+        ) {
+            if(item.getLikeok() > 35)
+                likeszam++;
+        }
+        System.out.println("Ennyi bejegyzésre likeoltak 35-nél többen: " + likeszam);
     }
 
 
