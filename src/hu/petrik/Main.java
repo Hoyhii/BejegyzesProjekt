@@ -3,10 +3,7 @@ package hu.petrik;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -56,16 +53,14 @@ public class Main {
 
     public static void konzolraIratas() {
         String bejegyzesek = "";
-        for (Bejegyzes bejegyzes : bejegyzesLista
-        ) {
+        for (Bejegyzes bejegyzes : bejegyzesLista) {
             bejegyzesek += bejegyzes + "\n";
         }
         System.out.println(bejegyzesek);
     }
     public static void harmincotnelTobbLike(){
         int likeszam = 0;
-        for (var item: bejegyzesLista
-        ) {
+        for (var item: bejegyzesLista) {
             if(item.getLikeok() > 35)
                 likeszam++;
         }
@@ -74,13 +69,21 @@ public class Main {
     public static void tizenotnelKevesebbLike(){
         int likeszam = 0;
 
-        for (var item: bejegyzesLista
-        ) {
+        for (var item: bejegyzesLista) {
             if(item.getLikeok() < 15)
                 likeszam++;
         }
 
         System.out.println("Ennyi bejegyzésre likoltak 15-nél kevesebben: " + likeszam);
+    }
+    public static void csokkenobe(){
+
+        System.out.println("Csökkenő sorrendbe rendezve: ");
+        Collections.sort(bejegyzesLista, Collections.reverseOrder());
+
+        for (Bejegyzes bejegyzes: bejegyzesLista) {
+            System.out.println(bejegyzes);
+        }
     }
 
 
